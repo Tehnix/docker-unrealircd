@@ -9,15 +9,13 @@ MAINTAINER Tehnix
 ENV LC_ALL C
 
 # Install necessary packages and clean up afterwards
-RUN apt-get update \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get install -y \
         build-essential \
         curl \
-        gcc \
         libssl-dev \
         libcurl4-openssl-dev \
         libgcrypt11-dev
-        make \
         zlib1g \
         zlib1g-dev \
         zlibc \
