@@ -3,14 +3,14 @@
 # Based on Alpine Linux - https://github.com/gliderlabs/docker-alpine
 ##############################################################################
 FROM debian:latest
-MAINTAINER Tehnix
+MAINTAINER ckl@codetalk.io
 
 # Set the correct locale environment
 ENV LC_ALL C
 
 # Install necessary packages and clean up afterwards
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-    && apt-get install -y \
+    && apt-get install -yq \
         build-essential \
         curl \
         libssl-dev \
@@ -18,7 +18,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
         libgcrypt11-dev
         zlib1g \
         zlib1g-dev \
-        zlibc \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
