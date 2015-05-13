@@ -9,8 +9,8 @@ MAINTAINER ckl@codetalk.io
 ENV LC_ALL C
 
 # Install necessary packages and clean up afterwards
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-    && apt-get install -yq \
+RUN apt-get update \
+    && apt-get install -y \
         build-essential \
         curl \
         libssl-dev \
