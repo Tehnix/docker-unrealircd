@@ -49,5 +49,5 @@ COPY unrealircd-config/aliases/ /etc/unrealircd/aliases
 EXPOSE 6667
 EXPOSE 6697
 
-CMD ["/usr/bin/unrealircd", "-F"]
+CMD ["/usr/bin/unrealircd", "-h"]
 #CMD ["/bin/bash"]
