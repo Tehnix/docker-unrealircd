@@ -40,6 +40,7 @@ RUN curl https://www.unrealircd.org/downloads/Unreal3.2.10.4.tar.gz | tar xz \
     && mv /etc/unrealircd/modules/* /usr/lib64/unrealircd/modules/ \
     && rm -rf /Unreal3.2.10.4
 
+# Copy configuration files into place
 COPY unrealircd-config/ircd.motd /etc/unrealircd/
 COPY unrealircd-config/*.conf /etc/unrealircd/
 COPY unrealircd-config/config/ /etc/unrealircd/config
@@ -49,5 +50,5 @@ COPY unrealircd-config/aliases/ /etc/unrealircd/aliases
 EXPOSE 6667
 EXPOSE 6697
 
-CMD ["/usr/bin/unrealircd", "--help"]
+#CMD ["/usr/bin/unrealircd", "-F"]
 #CMD ["/bin/bash"]
