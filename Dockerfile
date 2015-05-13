@@ -13,11 +13,20 @@ RUN apt-get update \
     && apt-get install -y \
         build-essential \
         curl \
+        gcc \
         libssl-dev \
         libcurl4-openssl-dev \
+        libgcrypt11 \
+        libgcrypt11-dev
+        make \
         zlib1g \
+        zlib1g-dev \
+        zlibc \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Add script to generate the SSL certificate
+COPY ssl-certificate.sh /etc/unrealircd
 
 # Download, configure and make UnrealIRCd from source
 RUN curl https://www.unrealircd.org/downloads/Unreal3.2.10.4.tar.gz | tar xz \
@@ -39,6 +48,8 @@ RUN curl https://www.unrealircd.org/downloads/Unreal3.2.10.4.tar.gz | tar xz \
     && mkdir -p /usr/lib64/unrealircd/modules \
     && mv /etc/unrealircd/modules/* /usr/lib64/unrealircd/modules/ \
     && rm -rf /Unreal3.2.10.4
+    && cd /etc/unrealircd
+    && ssl-certificate.sh
 
 # Copy configuration files into place
 COPY unrealircd-config/ircd.motd /etc/unrealircd/
