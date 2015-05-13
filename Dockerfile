@@ -16,7 +16,6 @@ RUN apt-get update \
         gcc \
         libssl-dev \
         libcurl4-openssl-dev \
-        libgcrypt11 \
         libgcrypt11-dev
         make \
         zlib1g \
