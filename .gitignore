@@ -1,2 +1,3 @@
 .DS_Store
 unrealircd-config/*
+ssl-certificate.sh
