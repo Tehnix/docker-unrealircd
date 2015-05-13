@@ -17,7 +17,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
         libcurl4-openssl-dev \
         libgcrypt11-dev
         zlib1g \
-        zlib1g-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
