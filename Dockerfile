@@ -47,7 +47,7 @@ RUN curl https://www.unrealircd.org/downloads/Unreal3.2.10.4.tar.gz | tar xz \
     && rm -rf /Unreal3.2.10.4
     && cd /etc/unrealircd
     && /ssl-certificate.sh
-    && rm ssl-certificate.sh
+    && rm /ssl-certificate.sh
 
 # Copy configuration files into place
 COPY unrealircd-config/ircd.motd /etc/unrealircd/
