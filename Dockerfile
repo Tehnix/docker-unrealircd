@@ -48,8 +48,7 @@ COPY ssl-certificate.sh /
 WORKDIR /
 RUN ssl-certificate.sh \
     && mv server.cert.pem /etc/unrealircd/ \
-    && mv server.key.pem /etc/unrealircd/ \
-    && rm ssl-certificate.sh
+    && mv server.key.pem /etc/unrealircd/
 
 # Copy configuration files into place
 COPY unrealircd-config/ircd.motd /etc/unrealircd/
