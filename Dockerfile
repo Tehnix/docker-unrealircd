@@ -9,14 +9,16 @@ MAINTAINER ckl@codetalk.io
 ENV LC_ALL C
 
 # Install necessary packages and clean up afterwards
-RUN apt-get update \
-    && apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+    && apt-get install -yq \
         build-essential \
         curl \
         libssl-dev \
         libcurl4-openssl-dev \
-        libgcrypt11-dev
+        libgcrypt11-dev \
         zlib1g \
+        zlib1g-dev \
+        zlibc \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
