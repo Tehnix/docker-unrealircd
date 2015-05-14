@@ -22,9 +22,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Add script to generate the SSL certificate
-COPY ssl-certificate.sh /
-
 # Download, configure and make UnrealIRCd from source
 RUN curl https://www.unrealircd.org/downloads/Unreal3.2.10.4.tar.gz | tar xz \
     && cd /Unreal3.2.10.4 \
@@ -44,10 +41,15 @@ RUN curl https://www.unrealircd.org/downloads/Unreal3.2.10.4.tar.gz | tar xz \
     && make install \
     && mkdir -p /usr/lib64/unrealircd/modules \
     && mv /etc/unrealircd/modules/* /usr/lib64/unrealircd/modules/ \
-    && rm -rf /Unreal3.2.10.4 \
-    && cd /etc/unrealircd \
-    && /ssl-certificate.sh \
-    && rm /ssl-certificate.sh
+    && rm -rf /Unreal3.2.10.4
+
+# Add script to generate the SSL certificate and execute it
+COPY ssl-certificate.sh /
+WORKDIR /
+RUN ssl-certificate.sh \
+    && mv server.cert.pem /etc/unrealircd/ \
+    && mv server.key.pem /etc/unrealircd/ \
+    && rm ssl-certificate.sh
 
 # Copy configuration files into place
 COPY unrealircd-config/ircd.motd /etc/unrealircd/
