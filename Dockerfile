@@ -1,6 +1,6 @@
 ##############################################################################
 # Docker file to build UnrealIRCd container images
-# Based on Alpine Linux - https://github.com/gliderlabs/docker-alpine
+# Based on Debian
 ##############################################################################
 FROM debian:latest
 MAINTAINER ckl@codetalk.io
