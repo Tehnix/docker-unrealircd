@@ -30,3 +30,9 @@ You should be ready to go! :)
 *Q:* Where does UnrealIRCd log?
 
 *A:* It logs to /var/log/ircd.log. This can be changed in the file `include/config.h` before building the IRCd.
+
+---
+
+*Q:* It get a `/bin/sh: 1: ssl-certificate.sh: Permission denied`?
+
+*A:* Your ssl-certificate.sh script is probably not executable. Do `chmod +x ssl-certificate.sh` on it.
