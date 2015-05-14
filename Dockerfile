@@ -44,9 +44,9 @@ RUN curl https://www.unrealircd.org/downloads/Unreal3.2.10.4.tar.gz | tar xz \
     && rm -rf /Unreal3.2.10.4
 
 # Add script to generate the SSL certificate and execute it
-COPY ssl-certificate.sh /
 WORKDIR /
-RUN ssl-certificate.sh \
+COPY ssl-certificate.sh /
+RUN /ssl-certificate.sh \
     && mv server.cert.pem /etc/unrealircd/ \
     && mv server.key.pem /etc/unrealircd/
 
