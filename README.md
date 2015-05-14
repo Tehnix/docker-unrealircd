@@ -21,18 +21,18 @@ You should be ready to go! :)
 
 # FAQ
 
-*Q:* UnrealIRCd stops after "Inizializing SSL."?
+**Q:** UnrealIRCd stops after "Inizializing SSL."?
 
-*A:* You're missing your server.cert.pem for the SSL connections.
-
----
-
-*Q:* Where does UnrealIRCd log?
-
-*A:* It logs to /var/log/ircd.log. This can be changed in the file `include/config.h` before building the IRCd.
+**A:** You're missing your server.cert.pem for the SSL connections.
 
 ---
 
-*Q:* It get a `/bin/sh: 1: ssl-certificate.sh: Permission denied`?
+**Q:** Where does UnrealIRCd log?
 
-*A:* Your ssl-certificate.sh script is probably not executable. Do `chmod +x ssl-certificate.sh` on it.
+**A:** It logs to /var/log/ircd.log. This can be changed in the file `include/config.h` before building the IRCd.
+
+---
+
+**Q:** I get a `/bin/sh: 1: ssl-certificate.sh: Permission denied`?
+
+**A:** Your ssl-certificate.sh script is probably not executable. Do `chmod +x ssl-certificate.sh` on it.
