@@ -56,4 +56,5 @@ COPY unrealircd-config /etc/unrealircd/
 EXPOSE 6667
 EXPOSE 6697
 
-CMD ["/usr/bin/unrealircd && tail -f /dev/null"]
+#CMD ["/usr/bin/unrealircd"]
+#CMD ["/bin/bash"]

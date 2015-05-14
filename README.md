@@ -14,7 +14,7 @@ $ docker build -t ircd .
 and then run the IRCd with,
 
 ```bash
-$ docker run -i -P -t ircd
+$ docker run -d -p 6667:6667 -p 6697:6697 ircd
 ```
 
 You should be ready to go! :)
