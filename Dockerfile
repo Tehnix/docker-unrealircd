@@ -50,14 +50,10 @@ RUN /tmp/ssl-certificate.sh \
     && mv server.key.pem /etc/unrealircd/
 
 # Copy configuration files into place
-COPY unrealircd-config/ircd.motd /etc/unrealircd/
-COPY unrealircd-config/*.conf /etc/unrealircd/
-COPY unrealircd-config/config/ /etc/unrealircd/config
-COPY unrealircd-config/aliases/ /etc/unrealircd/aliases
+COPY unrealircd-config /etc/unrealircd/
 
 # Expose IRC ports for plain and SSL connections
 EXPOSE 6667
 EXPOSE 6697
 
-#CMD ["/usr/bin/unrealircd", "-F"]
-#CMD ["/bin/bash"]
+CMD ["/usr/bin/unrealircd && tail -f /dev/null"]
